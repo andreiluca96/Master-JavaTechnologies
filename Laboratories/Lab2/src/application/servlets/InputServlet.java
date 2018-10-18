@@ -5,6 +5,7 @@ import application.cookies.CookieNames;
 import application.model.Category;
 import application.model.Record;
 
+import javax.management.InvalidAttributeValueException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -19,7 +20,7 @@ import java.util.TreeMap;
 @WebServlet(name = "InputServlet", urlPatterns = {"/input"})
 public class InputServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String category = request.getParameter("category");
         String name = request.getParameter("name");
         String key = request.getParameter("key");
@@ -29,6 +30,11 @@ public class InputServlet extends HttpServlet {
         if (mapping == null) {
             mapping = new TreeMap<>();
         }
+
+        if (mapping.containsKey(key)) {
+            throw new RuntimeException("The key already exists in the map.");
+        }
+
         mapping.put(key, new Record(name, Category.valueOf(category)));
         session.setAttribute(AttributeValues.MAPPING.name(), mapping);
 

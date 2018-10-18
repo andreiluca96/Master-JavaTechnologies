@@ -1,8 +1,7 @@
 <%@ page import="application.cookies.AttributeValues" %>
 <%@ page import="application.model.Record" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="java.util.stream.Collectors" %>
-<%@ page import="java.io.IOException" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: andrluc
   Date: 10/14/18

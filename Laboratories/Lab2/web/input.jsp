@@ -3,7 +3,7 @@
 <%@ page import="application.cookies.AttributeValues" %>
 <%@ page import="application.model.Category" %>
 <%@ page import="java.util.Objects" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page errorPage="error.jsp" %>
 <html>
 <head>

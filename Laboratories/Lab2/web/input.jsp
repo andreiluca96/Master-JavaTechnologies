@@ -28,6 +28,12 @@
             record.getName() == null? "" : record.getName() %>"><br>
         Key: <input type="text" name="key" value="<%=
             request.getAttribute(AttributeValues.KEY.name()) == null? "" : ((String)request.getAttribute(AttributeValues.KEY.name())) %>"><br>
+        <br/>
+        Captcha:
+        <img src="/captcha">
+        <br/>
+        <input type="text" name="captcha"/>
+        <br/>
         <input type="submit" value="Submit">
     </form>
 </body>

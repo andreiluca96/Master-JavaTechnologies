@@ -5,7 +5,6 @@ import application.cookies.CookieNames;
 import application.model.Category;
 import application.model.Record;
 
-import javax.management.InvalidAttributeValueException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -14,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.security.InvalidParameterException;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -21,6 +21,12 @@ import java.util.TreeMap;
 public class InputServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("====" + request.getSession().getAttribute("captcha"));
+        System.out.println("----" + request.getParameter("captcha"));
+        if (!request.getSession().getAttribute("captcha").equals(request.getParameter("captcha"))) {
+            throw new InvalidParameterException("The captcha value is invalid.");
+        }
+
         String category = request.getParameter("category");
         String name = request.getParameter("name");
         String key = request.getParameter("key");

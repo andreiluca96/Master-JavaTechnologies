@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="org.javalite:activejdbc:2.2" type="repository">
+    <properties maven-id="org.javalite:activejdbc:2.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/activejdbc-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javalite-common-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.9.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.9.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/app-config-2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

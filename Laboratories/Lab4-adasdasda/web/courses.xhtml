@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--suppress ELSpecValidationInJSP -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+    <h1>
+        Available courses
+    </h1>
+
+    <h:dataTable value = "#{Courses.all}" var = "course">
+        <h:column>
+            <f:facet name = "header">id</f:facet>
+            #{course.id}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">Short Name</f:facet>
+            #{course.shortName}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">Name</f:facet>
+            #{course.name}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">Year</f:facet>
+            #{course.year}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">Semester</f:facet>
+            #{course.semester}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">Lecturer</f:facet>
+            #{course.lecturer}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">URL</f:facet>
+            #{course.url}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">Optional Package Name</f:facet>
+            #{course.optionalPackageName}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">Study Groups count</f:facet>
+            #{course.studyGroupsCount}
+        </h:column>
+
+    </h:dataTable>
+</h:body>
 </html>

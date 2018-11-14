@@ -6,6 +6,42 @@ public class Course extends AbstractModel {
     private String id;
     private int year;
     private int semester;
+    private String url;
+    private Lecturer lecturer;
+    private int studyGroupsCount;
+    private String optionalPackageName;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
+    }
+
+    public int getStudyGroupsCount() {
+        return studyGroupsCount;
+    }
+
+    public void setStudyGroupsCount(int studyGroupsCount) {
+        this.studyGroupsCount = studyGroupsCount;
+    }
+
+    public String getOptionalPackageName() {
+        return optionalPackageName;
+    }
+
+    public void setOptionalPackageName(String optionalPackageName) {
+        this.optionalPackageName = optionalPackageName;
+    }
 
     public String getName() {
         return name;
@@ -45,5 +81,20 @@ public class Course extends AbstractModel {
 
     public void setSemester(int semester) {
         this.semester = semester;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "name='" + name + '\'' +
+                ", shortName='" + shortName + '\'' +
+                ", id='" + id + '\'' +
+                ", year=" + year +
+                ", semester=" + semester +
+                ", url='" + url + '\'' +
+                ", lecturer=" + lecturer +
+                ", studyGroupsCount=" + studyGroupsCount +
+                ", optionalPackageName='" + optionalPackageName + '\'' +
+                '}';
     }
 }

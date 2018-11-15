@@ -2,14 +2,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
    <h:body>
       <h:form>
-         <h3>Navigation</h3>
+         <h1>Navigation</h1>
          <br/>
-         <h:commandButton action="#{Index.goToCoursesPage}" value="Courses"/>
+
+         <h3>View</h3>
+         <h:commandButton action="#{Index.goToCoursesPage}" value="View Courses"/>
          <br/>
-         <h:commandButton action="#{Index.goToOptionalCoursesPackagePage}" value="Optional Courses Package"/>
+         <h:commandButton action="#{Index.goToOptionalCoursesPackagePage}" value="View Optional Courses Package"/>
+         <br/>
+
+         <h3>Insertion</h3>
+         <h:commandButton action="#{Index.goToCoursesInsertionPage}" value="Insert Courses"/>
+         <br/>
+         <h:commandButton action="#{Index.goToOptionalCoursesPackageInsertionPage}" value="Insert Optional Courses Package"/>
+      </h:form>
+
+      <br/>
+      <br/>
+
+      <h5>Insert what system propety you want to see</h5>
+      <h:form>
+         <h:inputText id="inputName" value="#{Index.input}"/>
+         <h:commandButton value="See">
+            <f:ajax execute="inputName" render = "outputMessage" />
+         </h:commandButton>
+         <br/>
+         <h:outputText id = "outputMessage" value = "#{Index.result}"/>
       </h:form>
    </h:body>
 </html>

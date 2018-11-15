@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+    <h3>Insert a new course</h3>
+    <h:form>
+        <h:outputLabel for="short_name">Short Name</h:outputLabel>
+        <h:inputText id="short_name" value="#{CourseInsertion.shortName}" required="true"/><br/>
+
+        <h:outputLabel for="name">Name</h:outputLabel>
+        <h:inputText id="name" value="#{CourseInsertion.name}" required="true"/><br/>
+
+        <h:outputLabel for="year">Year</h:outputLabel>
+        <h:inputText id="year" value="#{CourseInsertion.year}" required="true"/><br/>
+
+        <h:outputLabel for="semester">Semester</h:outputLabel>
+        <h:inputText id="semester" value="#{CourseInsertion.semester}" required="true"/><br/>
+
+        <h:outputLabel for="lecturer">Lecturer</h:outputLabel>
+        <h:inputText id="lecturer" value="#{CourseInsertion.lecturer}"/><br/>
+
+        <h:outputLabel for="url">URL</h:outputLabel>
+        <h:inputText id="url" value="#{CourseInsertion.url}"/><br/>
+
+        <h:outputLabel for="optionalPackageName">Optional Package Name</h:outputLabel>
+        <h:inputText id="optionalPackageName" value="#{CourseInsertion.optionalPackageName}"/><br/>
+
+        <h:outputLabel for="studyGroupsCount">Study groups count</h:outputLabel>
+        <h:inputText id="studyGroupsCount" value="#{CourseInsertion.studyGroupsCount}"/><br/>
+
+        <h:commandButton value="Submit" action="#{CourseInsertion.save}"/>
+    </h:form>
+</h:body>
+</html>

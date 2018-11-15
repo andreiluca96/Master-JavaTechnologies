@@ -34,7 +34,18 @@ public class OptionalCoursesPackageRepository extends PostgreSQLModelRepository<
 
     @Override
     public void save(OptionalCoursesPackage entity) {
+        final Connection dbConnection = getDBConnection();
 
+        try {
+            final Statement statement = dbConnection.createStatement();
+
+            String sqlStatement = String.format("INSERT INTO optional_courses_package VALUES (\'%s\', \'%s\', %s, %s, %s);",
+                    entity.getId(), entity.getName(), entity.getYear(), entity.getSemester(), entity.getCoursesCount());
+
+            statement.executeUpdate(sqlStatement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

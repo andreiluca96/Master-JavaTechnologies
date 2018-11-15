@@ -45,6 +45,7 @@ public class OptionalCoursesPackage extends AbstractModel {
                 ", year=" + year +
                 ", semester=" + semester +
                 ", coursesCount=" + coursesCount +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

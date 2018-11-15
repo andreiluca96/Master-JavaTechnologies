@@ -1,7 +1,7 @@
 package com.andrluc.javatech.courseallocation.model;
 
 public abstract class AbstractModel {
-    private String id;
+    protected String id;
 
     public String getId() {
         return id;

@@ -36,7 +36,19 @@ public class CoursesRepository extends PostgreSQLModelRepository<Course>{
 
     @Override
     public void save(Course entity) {
+        final Connection dbConnection = getDBConnection();
 
+        try {
+            final Statement statement = dbConnection.createStatement();
+
+            String sqlStatement = String.format("INSERT INTO public.courses VALUES (\'%s\', \'%s\', \'%s\', %s, %s, \'%s\', \'%s\', \'%s\', %s);",
+                    entity.getId(), entity.getShortName(), entity.getName(), entity.getYear(), entity.getSemester(),
+                    entity.getLecturer(), entity.getUrl(), entity.getOptionalPackageName(), entity.getStudyGroupsCount());
+
+            statement.executeUpdate(sqlStatement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

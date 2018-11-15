@@ -95,6 +95,7 @@ public class Course extends AbstractModel {
                 ", lecturer=" + lecturer +
                 ", studyGroupsCount=" + studyGroupsCount +
                 ", optionalPackageName='" + optionalPackageName + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

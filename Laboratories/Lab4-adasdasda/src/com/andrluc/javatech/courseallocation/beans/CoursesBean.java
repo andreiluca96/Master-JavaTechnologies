@@ -10,7 +10,6 @@ import java.util.List;
 @ManagedBean(name = "Courses", eager = true)
 @RequestScoped
 public class CoursesBean {
-
     private final CoursesRepository coursesRepository =
             new CoursesRepository();
 

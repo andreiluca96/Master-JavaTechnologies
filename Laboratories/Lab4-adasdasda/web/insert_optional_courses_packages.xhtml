@@ -12,7 +12,11 @@
         <h:inputText id="name" value="#{OptionalCoursesPackageInsertion.name}" required="true"/><br/>
 
         <h:outputLabel for="year">Year</h:outputLabel>
-        <h:inputText id="year" value="#{OptionalCoursesPackageInsertion.year}" required="true"/><br/>
+        <h:inputText id="year"
+                     value="#{OptionalCoursesPackageInsertion.year}"
+                     required="true"
+                     converter="StringToIntegerConverter"
+                     validator="PositiveIntegerValidator"/><br/>
 
         <h:outputLabel for="semester">Semester</h:outputLabel>
         <h:inputText id="semester" value="#{OptionalCoursesPackageInsertion.semester}" required="true"/><br/>

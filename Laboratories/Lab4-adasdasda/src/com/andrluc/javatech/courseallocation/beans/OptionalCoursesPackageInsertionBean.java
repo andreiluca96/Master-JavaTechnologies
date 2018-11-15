@@ -15,7 +15,7 @@ public class OptionalCoursesPackageInsertionBean {
             new OptionalCoursesPackageRepository();
 
     private String name;
-    private String year;
+    private int year;
     private String semester;
     private String coursesCount;
 
@@ -29,11 +29,11 @@ public class OptionalCoursesPackageInsertionBean {
         this.name = name;
     }
 
-    public String getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
@@ -57,7 +57,7 @@ public class OptionalCoursesPackageInsertionBean {
         OptionalCoursesPackage optionalCoursesPackage = new OptionalCoursesPackage();
         optionalCoursesPackage.setId(UUID.randomUUID().toString());
         optionalCoursesPackage.setName(name);
-        optionalCoursesPackage.setYear(Integer.parseInt(year));
+        optionalCoursesPackage.setYear(year);
         optionalCoursesPackage.setSemester(Integer.parseInt(semester));
         optionalCoursesPackage.setCoursesCount(Integer.parseInt(coursesCount));
 

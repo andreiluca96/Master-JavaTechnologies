@@ -10,7 +10,6 @@ public class Student extends Person {
     @Column(name = "year_of_study")
     private int yearOfStudy;
 
-
     public int getYearOfStudy() {
         return yearOfStudy;
     }

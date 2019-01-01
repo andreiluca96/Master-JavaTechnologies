@@ -1,5 +1,6 @@
 package optional.course.allocation;
 
+import optional.course.allocation.model.courses.CompulsoryCourse;
 import optional.course.allocation.model.person.Lecturer;
 import optional.course.allocation.model.person.Student;
 
@@ -16,14 +17,28 @@ public class Main {
         entityManager.getTransaction().begin();
 
         Lecturer lecturer = new Lecturer();
+//        lecturer.setId(1);
         lecturer.setName("Cristian Frasinaru");
         lecturer.setPosition("Lect. Dr.");
 
         Student student = new Student();
+//        student.setId(1);
         student.setName("Luca Andrei");
         student.setYearOfStudy(1);
 
+        CompulsoryCourse javaCourse = CompulsoryCourse.compulsoryCourseBuilder()
+//                .id(1)
+                .name("Java Technologies")
+                .shortName("Java")
+                .year(2)
+                .semester(1)
+                .url("tbd")
+                .lecturer(lecturer)
+                .studyGroupsCount(15)
+                .build();
+
         entityManager.persist(lecturer);
+        entityManager.persist(javaCourse);
         entityManager.persist(student);
 
         entityManager.getTransaction().commit();

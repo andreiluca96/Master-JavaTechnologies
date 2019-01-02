@@ -2,6 +2,7 @@ package optional.course.allocation.model.courses;
 
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import optional.course.allocation.model.Grade;
 import optional.course.allocation.model.Package;
 import optional.course.allocation.model.person.Lecturer;
@@ -15,6 +16,7 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("compulsory")
 @NoArgsConstructor
+@ToString
 public class CompulsoryCourse extends Course {
     @Builder(builderMethodName = "compulsoryCourseBuilder")
 

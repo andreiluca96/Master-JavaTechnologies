@@ -1,6 +1,7 @@
 package optional.course.allocation.model.preferences;
 
 import lombok.Data;
+import lombok.ToString;
 import optional.course.allocation.model.courses.Course;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "course_preferences")
 @Data
+@ToString
 public class CoursePreference {
     @Id
     @Column(name = "id")

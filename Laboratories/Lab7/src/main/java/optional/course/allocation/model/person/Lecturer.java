@@ -1,5 +1,8 @@
 package optional.course.allocation.model.person;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import optional.course.allocation.model.courses.Course;
 
 import javax.persistence.CascadeType;
@@ -11,6 +14,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "lecturers")
+@ToString
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class Lecturer extends Person {
     @Column(name = "position")
     private String position;
@@ -20,20 +26,4 @@ public class Lecturer extends Person {
             cascade = CascadeType.MERGE
     )
     private List<Course> courses;
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public List<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
 }

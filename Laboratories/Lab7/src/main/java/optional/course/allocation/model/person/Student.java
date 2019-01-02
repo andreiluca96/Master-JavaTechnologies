@@ -1,6 +1,8 @@
 package optional.course.allocation.model.person;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import optional.course.allocation.model.Grade;
 import optional.course.allocation.model.preferences.StudentPreference;
 
@@ -14,9 +16,14 @@ import java.util.List;
 @Entity
 @Table(name = "students")
 @Data
+@EqualsAndHashCode(callSuper = true)
+@ToString
 public class Student extends Person {
     @Column(name = "year_of_study")
     private int yearOfStudy;
+
+    @Column(name = "semester")
+    private int semester;
 
     @OneToMany(
             mappedBy = "student",

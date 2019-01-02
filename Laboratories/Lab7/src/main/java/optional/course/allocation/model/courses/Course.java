@@ -3,6 +3,7 @@ package optional.course.allocation.model.courses;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import optional.course.allocation.model.Grade;
 import optional.course.allocation.model.Package;
 import optional.course.allocation.model.person.Lecturer;
@@ -35,6 +36,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Course {
     @Id
     @Column(name = "id")

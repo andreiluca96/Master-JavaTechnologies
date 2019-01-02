@@ -13,7 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class Main {
+public class PersistenceMain {
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory =
                 Persistence.createEntityManagerFactory("persistenceUnitName");
@@ -31,7 +31,13 @@ public class Main {
 
         Student student = new Student();
         student.setName("Luca Andrei");
-        student.setYearOfStudy(1);
+        student.setYearOfStudy(3);
+        student.setSemester(1);
+
+        Student student2 = new Student();
+        student2.setName("John Doe");
+        student2.setYearOfStudy(3);
+        student2.setSemester(1);
 
         Package aPackage = new Package();
         aPackage.setName("OP1");
@@ -79,13 +85,13 @@ public class Main {
         entityManager.persist(javaCourse);
         entityManager.persist(neuralNetworksOptionalCourse);
         entityManager.persist(student);
+        entityManager.persist(student2);
         entityManager.persist(aPackage);
         entityManager.persist(grade);
         entityManager.persist(coursePreference);
         entityManager.persist(studentPreference);
 
         entityManager.getTransaction().commit();
-
         entityManager.close();
     }
 }

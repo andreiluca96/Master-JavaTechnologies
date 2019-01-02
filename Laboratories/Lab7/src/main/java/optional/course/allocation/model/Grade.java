@@ -1,8 +1,7 @@
 package optional.course.allocation.model;
 
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.ToString;
 import optional.course.allocation.model.courses.Course;
 import optional.course.allocation.model.person.Student;
 import org.hibernate.annotations.GenericGenerator;
@@ -18,6 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "grades")
 @Data
+@ToString
 public class Grade {
     @Id
     @Column(name = "id")

@@ -1,6 +1,7 @@
 package optional.course.allocation.model.preferences;
 
 import lombok.Data;
+import lombok.ToString;
 import optional.course.allocation.model.Package;
 import optional.course.allocation.model.courses.Course;
 import optional.course.allocation.model.person.Student;
@@ -17,6 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "student_preferences")
 @Data
+@ToString
 public class StudentPreference {
     @Id
     @Column(name = "id")

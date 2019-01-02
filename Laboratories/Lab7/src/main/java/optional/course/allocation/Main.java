@@ -1,8 +1,13 @@
 package optional.course.allocation;
 
+import optional.course.allocation.model.Grade;
+import optional.course.allocation.model.Package;
 import optional.course.allocation.model.courses.CompulsoryCourse;
+import optional.course.allocation.model.courses.OptionalCourse;
 import optional.course.allocation.model.person.Lecturer;
 import optional.course.allocation.model.person.Student;
+import optional.course.allocation.model.preferences.CoursePreference;
+import optional.course.allocation.model.preferences.StudentPreference;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,30 +21,68 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
-        Lecturer lecturer = new Lecturer();
-//        lecturer.setId(1);
-        lecturer.setName("Cristian Frasinaru");
-        lecturer.setPosition("Lect. Dr.");
+        Lecturer acf = new Lecturer();
+        acf.setName("Cristian Frasinaru");
+        acf.setPosition("Lect. Dr.");
+
+        Lecturer rb = new Lecturer();
+        rb.setName("Razvan Benchea");
+        rb.setPosition("Colab. Drd.");
 
         Student student = new Student();
-//        student.setId(1);
         student.setName("Luca Andrei");
         student.setYearOfStudy(1);
 
+        Package aPackage = new Package();
+        aPackage.setName("OP1");
+        aPackage.setYear(3);
+        aPackage.setSemester(1);
+
         CompulsoryCourse javaCourse = CompulsoryCourse.compulsoryCourseBuilder()
-//                .id(1)
                 .name("Java Technologies")
                 .shortName("Java")
                 .year(2)
                 .semester(1)
                 .url("tbd")
-                .lecturer(lecturer)
+                .lecturer(acf)
                 .studyGroupsCount(15)
                 .build();
 
-        entityManager.persist(lecturer);
+        OptionalCourse neuralNetworksOptionalCourse = OptionalCourse.optionalCourseBuilder()
+                .name("Retele neuronale")
+                .shortName("RN")
+                .year(3)
+                .semester(1)
+                .url("tbd")
+                .lecturer(rb)
+                .studyGroupsCount(3)
+                .aPackage(aPackage)
+                .build();
+
+        CoursePreference coursePreference = new CoursePreference();
+        coursePreference.setPreferredCourse(javaCourse);
+        coursePreference.setTargetCourse(neuralNetworksOptionalCourse);
+
+        StudentPreference studentPreference = new StudentPreference();
+        studentPreference.setAPackage(aPackage);
+        studentPreference.setPreferredCourse(neuralNetworksOptionalCourse);
+        studentPreference.setStudent(student);
+        studentPreference.setPreferredCoursePriority(1);
+
+        Grade grade = new Grade();
+        grade.setValue(10);
+        grade.setStudent(student);
+        grade.setCourse(javaCourse);
+
+        entityManager.persist(rb);
+        entityManager.persist(acf);
         entityManager.persist(javaCourse);
+        entityManager.persist(neuralNetworksOptionalCourse);
         entityManager.persist(student);
+        entityManager.persist(aPackage);
+        entityManager.persist(grade);
+        entityManager.persist(coursePreference);
+        entityManager.persist(studentPreference);
 
         entityManager.getTransaction().commit();
 

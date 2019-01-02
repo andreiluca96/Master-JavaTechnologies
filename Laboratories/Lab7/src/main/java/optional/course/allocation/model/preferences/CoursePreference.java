@@ -1,40 +1,34 @@
-package optional.course.allocation.model;
+package optional.course.allocation.model.preferences;
 
 import lombok.Data;
 import optional.course.allocation.model.courses.Course;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
-@Table(name = "packages")
+@Table(name = "course_preferences")
 @Data
-public class Package {
+public class CoursePreference {
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "incrementator")
     @GenericGenerator(name = "incrementator", strategy = "increment")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @JoinColumn(name = "target_course_id",
+            referencedColumnName = "id")
+    @OneToOne
+    private Course targetCourse;
 
-    @Column(name = "year")
-    private int year;
-
-    @Column(name = "semester")
-    private int semester;
-
-    @OneToMany(
-            mappedBy = "aPackage",
-            cascade = CascadeType.MERGE
-    )
-    private List<Course> courses;
+    @ManyToOne
+    @JoinColumn(name = "preffered_course_id", referencedColumnName = "id")
+    private Course preferredCourse;
 }

@@ -1,8 +1,7 @@
-package optional.course.allocation.model;
+package optional.course.allocation.model.preferences;
 
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import optional.course.allocation.model.Package;
 import optional.course.allocation.model.courses.Course;
 import optional.course.allocation.model.person.Student;
 import org.hibernate.annotations.GenericGenerator;
@@ -16,23 +15,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "grades")
+@Table(name = "student_preferences")
 @Data
-public class Grade {
+public class StudentPreference {
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "incrementator")
     @GenericGenerator(name = "incrementator", strategy = "increment")
     private int id;
 
-    @Column(name = "grade_value")
-    private int value;
-
-    @ManyToOne
-    @JoinColumn(name = "course_id", referencedColumnName = "id")
-    protected Course course;
-
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id")
-    protected Student student;
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "preferred_course_id", referencedColumnName = "id")
+    private Course preferredCourse;
+
+    @Column(name = "preferred_course_priority")
+    private int preferredCoursePriority;
+
+    @ManyToOne
+    @JoinColumn(name = "package_id", referencedColumnName = "id")
+    private Package aPackage;
 }

@@ -6,6 +6,7 @@ import lombok.ToString;
 import optional.course.allocation.model.Grade;
 import optional.course.allocation.model.preferences.StudentPreference;
 
+import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
